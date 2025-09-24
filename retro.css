@@ -63,7 +63,13 @@ pre, #output, #instructions, #asciiText {
 }
 
 .blink {
-  animation: blink 0.4s linear infinite;
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
 }
 
 #navbar-placeholder,
@@ -83,10 +89,10 @@ pre, #output, #instructions, #asciiText {
 }
 
 #resume-modal {
-  width: 96vw !important;
-  height: 90vh !important;
-  left: 2vw !important;
-  top: 5vh !important;
+  width: 96vw ;
+  height: 90vh ;
+  left: 2vw ;
+  top: 5vh ;
   min-width: 0;
   min-height: 0;
   padding: 0;
@@ -94,9 +100,8 @@ pre, #output, #instructions, #asciiText {
 }
 
 #resume-modal iframe {
-  width: 100% !important;
-  height: 90% !important;
-  min-width: 0;
+  width: 100%;
+  height: calc(100% - 50px);
   min-height: 0;
 }
 
@@ -120,9 +125,9 @@ pre, #output, #instructions, #asciiText {
 
 @media (max-width: 700px) {
   nav, .nav-links {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 0.5em !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5em;
   }
   .nav-item {
     width: 100%;

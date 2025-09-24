@@ -82,25 +82,43 @@ function handleKeypress(e, input, output) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Terminal/Prompt initialization
+document.addEventListener('DOMContentLoaded', async () => {
   const asciiText = document.getElementById('asciiText');
-  if (asciiText) {
-    const asciiArt = asciiText.innerText;
-    asciiText.innerHTML = '';
-    const instructions = document.getElementById('instructions');
-    const prompt = document.getElementById('prompt');
-    const cursor = document.getElementById('cursor');
-    const input = document.getElementById('command-input');
-    const output = document.getElementById('output');
-    (async () => {
-      await wait(1000);
-      await writeText(asciiText, asciiArt);
-      await wait(500);
-      await writeText(instructions, `Enter a command. Enter 'help' to see a list of commands.`);
-      if (prompt) prompt.prepend('>');
-      if (cursor) cursor.innerHTML = '_';
-    })();
-    document.addEventListener('keydown', (e) => handleKeypress(e, input, output));
+  const instructions = document.getElementById('instructions');
+  const prompt = document.getElementById('prompt');
+  const commandInput = document.getElementById('command-input');
+  const cursor = document.getElementById('cursor');
+  const output = document.getElementById('output');
+
+  // Detect if the user is on a mobile device
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  // Update asciiText and instructions based on device type
+  if (isMobile) {
+    asciiText.innerText = 'Hello World';
+    instructions.innerText = "Tap the screen to start typing your command.";
+  } else {
+    asciiText.innerText = `
+ __   __  _______  ___      ___      _______    _     _  _______  ______    ___      ______  
+|  | |  ||       ||   |    |   |    |       |  | | _ | ||       ||    _ |  |   |    |      | 
+|  |_|  ||    ___||   |    |   |    |   _   |  | || || ||   _   ||   | ||  |   |    |  _    |
+|       ||   |___ |   |    |   |    |  | |  |  |       ||  | |  ||   |_||_ |   |    | | |   |
+|       ||    ___||   |___ |   |___ |  |_|  |  |       ||  |_|  ||    __  ||   |___ | |_|   |
+|   _   ||   |___ |       ||       ||       |  |   _   ||       ||   |  | ||       ||       |
+|__| |__||_______||_______||_______||_______|  |__| |__||_______||___|  |_||_______||______|                                                                                
+    `;
+    instructions.innerText = "Type your command and press Enter.";
   }
+
+  // Prompt for keyboard input on mobile devices
+  if (isMobile) {
+    prompt.addEventListener('click', () => {
+      commandInput.focus();
+    });
+  }
+
+  // Blink cursor effect
+  cursor.classList.add('blink');
+
+  document.addEventListener('keydown', (e) => handleKeypress(e, commandInput, output));
 });
