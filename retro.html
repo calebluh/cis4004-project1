@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="retro.css">
+    <link rel="icon" type="image/png" href="profile.JPEG">
+    <title>Caleb Luh | Retro Terminal</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Mobile Menu Sheet (Side Panel) -->
+    <div id="mobile-sheet" class="mobile-sheet"></div>
+
+
+    <pre id="asciiText">
+  _    _      _ _        __          __        _     _ 
+ | |  | |    | | |       \ \        / /       | |   | |
+ | |__| | ___| | | ___    \ \  /\  / /__  _ __| | __| |
+ |  __  |/ _ \ | |/ _ \    \ \/  \/ / _ \| '__| |/ _` |
+ | |  | |  __/ | | (_) |    \  /\  / (_) | |  | | (_| |
+ |_|  |_|\___|_|_|\___/      \/  \/ \___/|_|  |_|\__,_|
+    </pre>
+    <pre id="instructions"></pre>
+    <pre id="output"></pre>
+    <div id="prompt">
+        <span id="command-input"></span><span id="cursor" class="blink"></span>
+    </div>
+
+    <div id="characterhead-container" style="display:none; margin-top:2em;"></div>
+
+    <div id="interlaced"></div>  
+    <div id="glare"></div>
+
+    <div id="resume-modal" style="display:none; position:fixed; top:5%; left:5%; width:90%; height:90%; background:#18181b; z-index:1000; overflow:none;">
+        <button onclick="document.getElementById('resume-modal').style.display='none'" style="position:absolute;bottom:10px;right:20px;z-index:1001;">Close</button>
+        <iframe id="resume-frame" src="" width="100%" height="100%" style="border:none;"></iframe>
+    </div>
+
+    <script src="retro.js"></script>
+
+</body>
+</html>

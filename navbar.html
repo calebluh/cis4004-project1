@@ -1,0 +1,34 @@
+<header>
+    <nav>
+        <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+            <span></span>
+        </button>
+        
+        <div class="nav-links">
+            <a href="home.html" class="nav-item">Home</a>
+            <a href="resume.html" class="nav-item">Resume</a>
+            <a href="characterhead.html" class="nav-item">Mr. Character Head</a>
+            <a href="game.html" class="nav-item">Game</a>
+            <a href="retro.html" class="nav-item">Retro Console</a>
+        </div>
+        <div class="theme-controls">
+        <!-- Accent Color Picker -->
+        <div style="position:relative;">
+            <button class="palette-btn" id="accent-popover-btn" aria-label="Change accent color">
+                <img src="palette-library-svgrepo-com.svg" alt="Palette">
+            </button>
+            <div class="popover-content" id="accent-popover-content">
+                <span style="font-size:0.9em; color:var(--muted-foreground);">Accent Color</span>
+                <div class="accent-grid" id="accent-options"></div>
+            </div>
+            <!-- Theme Toggle Switch -->
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="theme-slider"></span>
+            </label>
+        </div>
+    </nav>
+</header>
+<!-- Side drawer and overlay -->
+<div id="mobile-sheet" class="mobile-sheet"></div>
+<div id="sheet-overlay" class="sheet-overlay"></div>
