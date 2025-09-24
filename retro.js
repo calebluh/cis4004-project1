@@ -82,18 +82,6 @@ function handleKeypress(e, input, output) {
   }
 }
 
-function showCharacterHead() {
-  const container = document.getElementById('characterhead-container');
-  if (!container) return;
-  container.style.display = 'block';
-  container.innerHTML = ''; // Clear previous content
-
-  // Dynamically load and run characterhead.js
-  const script = document.createElement('script');
-  script.src = 'characterhead.js';
-  container.appendChild(script);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   // Terminal/Prompt initialization
   const asciiText = document.getElementById('asciiText');

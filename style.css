@@ -252,12 +252,12 @@ nav {
   transform: translateX(0);
 }
 .mobile-sheet .nav-links {
-  display: flex !important; /* Ensure links are visible inside the sheet */
+  display: flex !important;
   flex-direction: column;
   gap: 1em;
 }
 .mobile-sheet .theme-controls {
-  display: flex !important; /* Ensure controls are visible inside the sheet */
+  display: flex !important;
   flex-direction: column;
   gap: 1em;
   margin-top: 2em;

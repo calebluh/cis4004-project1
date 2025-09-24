@@ -116,7 +116,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (hamburger) hamburger.addEventListener('click', openMenu);
   if (overlay) overlay.addEventListener('click', closeMenu);
-  // Optionally close on nav click
   if (mobileSheet) {
     mobileSheet.addEventListener('click', e => {
       if (e.target.classList.contains('nav-item')) {
