@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     themeToggle.checked = isDark;
     themeToggle.addEventListener('change', () => setTheme(themeToggle.checked));
   }
+
   // Hamburger Menu Logic
   const hamburger = document.getElementById('hamburger-btn');
   const mobileSheet = document.getElementById('mobile-sheet');
@@ -101,6 +102,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     const controlsClone = themeControls.cloneNode(true);
     mobileSheet.appendChild(navClone);
     mobileSheet.appendChild(controlsClone);
+
+    // Attach event listeners to cloned theme toggle and accent picker
+    const mobileThemeToggle = controlsClone.querySelector('#theme-toggle-checkbox');
+    const mobileAccentOptions = controlsClone.querySelectorAll('.accent-option');
+
+    if (mobileThemeToggle) {
+      mobileThemeToggle.addEventListener('change', () => {
+        const isDark = mobileThemeToggle.checked;
+        document.documentElement.classList.toggle('dark', isDark);
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    }
+
+    if (mobileAccentOptions) {
+      mobileAccentOptions.forEach(option => {
+        option.addEventListener('click', () => {
+          const color = option.dataset.color;
+          document.documentElement.style.setProperty('--primary', color);
+          localStorage.setItem('accent', color);
+        });
+      });
+    }
   }
 
   function openMenu() {
